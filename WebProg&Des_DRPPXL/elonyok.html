@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egészséges Táplálkozás Előnyei</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #4caf50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        h3 {
+            color: #4caf50;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 1.5rem;
+        }
+        .calculator-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #e7f7e7;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .btn-calculate {
+            background-color: #4caf50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-calculate:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Az Egészséges Táplálkozás Előnyei</h1>
+    <p>Miért fontos az egészséges táplálkozás és hogyan támogathatja a testi és mentális jólétet?</p>
+</header>
+
+<nav>
+    <a href="index.html">Vissza a főoldalra!</a>
+    <a href="alapelvek.html">Táplálkozás alapelvei</a>
+    <a href="elonyok.html">Előnyök</a>
+    <a href="receptek.html">Receptek</a>
+    <a href="kapcsolat.html">Kapcsolat</a>
+</nav>
+
+<section>
+    <h3>Az egészséges táplálkozás előnyei</h3>
+    <ul>
+        <li><strong>Javítja az energiaszintet:</strong> Az egészséges étkezések segítenek fenntartani az energiaszintet a nap folyamán.</li>
+        <li><strong>Erősíti az immunrendszert:</strong> A vitaminokban és ásványi anyagokban gazdag ételek hozzájárulnak a védekezőképesség növeléséhez.</li>
+        <li><strong>Segíti a mentális egészséget:</strong> A megfelelő táplálkozás javítja a hangulatot és csökkenti a szorongás szintjét.</li>
+        <li><strong>Fenntartja az ideális testsúlyt:</strong> Az egészséges táplálkozás segít a testsúly kontrollálásában, mivel biztosítja a megfelelő tápanyagbevitelt.</li>
+        <li><strong>Csökkenti a krónikus betegségek kockázatát:</strong> A kiegyensúlyozott étrend csökkentheti a szív- és érrendszeri problémák, a cukorbetegség és más betegségek kockázatát.</li>
+    </ul>
+</section>
+
+<section class="calculator-container">
+    <h3>Számold ki a napi kalóriaszükségletedet!</h3>
+    <p>Írd be a nemedet, testsúlyodat, magasságodat és az aktivitási szintedet, hogy meghatározhassuk a napi kalóriaszükségletedet.</p>
+
+    <div class="form-group">
+        <label for="gender">Nem:</label>
+        <select id="gender">
+            <option value="female">Nő</option>
+            <option value="male">Férfi</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="weight">Testsúly (kg):</label>
+        <input type="number" id="weight" placeholder="Testsúly kg-ban" required>
+    </div>
+
+    <div class="form-group">
+        <label for="height">Magasság (cm):</label>
+        <input type="number" id="height" placeholder="Magasság cm-ben" required>
+    </div>
+
+    <div class="form-group">
+        <label for="activity">Aktivitási szint:</label>
+        <select id="activity">
+            <option value="1.2">Alacsony aktivitás (ülő életmód)</option>
+            <option value="1.375">Könnyű aktivitás (heti 1-3 edzés)</option>
+            <option value="1.55">Közepes aktivitás (heti 3-5 edzés)</option>
+            <option value="1.725">Magas aktivitás (heti 6-7 edzés)</option>
+            <option value="1.9">Nagyon magas aktivitás (intenzív edzés + fizikai munka)</option>
+        </select>
+    </div>
+
+    <button class="btn-calculate" onclick="calculateCalories()">Számold ki</button>
+
+    <div class="result" id="result"></div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Egészséges Táplálkozás - Minden jog fenntartva.</p>
+</footer>
+
+<script>
+    function calculateCalories() {
+        var gender = document.getElementById("gender").value;
+        var weight = parseFloat(document.getElementById("weight").value);
+        var height = parseFloat(document.getElementById("height").value);
+        var activityLevel = parseFloat(document.getElementById("activity").value);
+
+        if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+            alert("Kérlek, töltsd ki az összes mezőt helyesen!");
+            return;
+        }
+
+        // BMR számítása a nem és életkor figyelembevételével
+        var age = 30; // Életkor: feltételezünk egy 30 éves személyt
+
+        var BMR;
+        if (gender === "female") {
+            BMR = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * age);  // Női képlet
+        } else {
+            BMR = 66 + (13.7 * weight) + (5 * height) - (6.8 * age);  // Férfi képlet
+        }
+
+        // A napi kalóriaszükséglet kiszámítása
+        var dailyCalories = BMR * activityLevel;
+
+        document.getElementById("result").innerHTML = "A napi kalóriaszükségleted: " + Math.round(dailyCalories) + " kalória.";
+    }
+</script>
+
+</body>
+</html>
